@@ -1,0 +1,8 @@
+/.env
+/.env.local
+/.env.local.php
+/.env.*.local
+/vendor/
+/.vscode/
+/composer.lock
+/.php_cs.cache

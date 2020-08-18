@@ -1,0 +1,70 @@
+{
+    "name": "phpcfdi/resources-sat-efos",
+    "type": "project",
+    "description": "Library to handle the information about SAT EFOS (Empresa que Factura Operaciones Simuladas - México)",
+    "keywords": ["sat", "efos", "contabilidad", "méxico"],
+    "license": "MIT",
+    "homepage": "https://github.com/phpcfdi/resources-sat-efos",
+    "authors": [
+        {
+            "name": "Raúl Cruz C",
+            "email": "cruzcraul@gmail.com"
+        }
+    ],
+    "support": {
+        "source": "https://github.com/phpcfdi/resources-sat-efos",
+        "issues": "https://github.com/phpcfdi/resources-sat-efos/issues",
+        "chat": "https://discord.gg/aFGYXvX"
+    },
+    "require": {
+        "php": "^7.3",
+        "ext-ctype": "*",
+        "ext-iconv": "*",
+        "aura/sqlquery": "^2",
+        "doctrine/migrations": "^3.0",
+        "league/csv": "^9.6",
+        "monolog/monolog": "^2.1",
+        "paragonie/easydb": "^2",
+        "symfony/console": "^5.1",
+        "symfony/http-client": "^5.1",
+        "vlucas/phpdotenv": "^5.1"
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^3.0",
+        "friendsofphp/php-cs-fixer": "^2.4"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": {
+            "*": "dist"
+        },
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {
+            "PhpCfdi\\Efos\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "PhpCfdi\\Efos\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "migrate": [
+            "php bin/efos migrate lastes -n  --configuration=db/migrations/configuration.php --db-configuration db/migrations/migrations-db.php"
+        ]
+    },
+    "scripts-descriptions": {
+        "migrate": "Run EFOS Library Migrations"
+    },
+    "extra": {
+        "symfony": {
+            "allow-contrib": false,
+            "require": "5.1.*"
+        }
+    },
+    "bin": [
+        "bin/efos"
+    ]
+}
